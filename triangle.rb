@@ -14,7 +14,14 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  case [a, b, c].uniq.count
+	when 1
+		return :equilateral
+	when 2
+		return :isosceles
+	when 3
+		return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
