@@ -14,7 +14,20 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  case [a, b, c].uniq.count
+	sides = [a,b,c]
+
+	# A triangle cannot have sides which are equal to or less than 0 in length
+	if sides.min <= 0
+		raise TriangleError
+	end
+
+	# A triangle cannot have the sum of two sides being equal to or less
+	# than the length of the third side. Eg. 2, 7, 12
+	if sides.sort[0] + sides.sort[1] <= sides.sort[2]
+	  raise TriangleError
+	end
+
+  case sides.uniq.count
 	when 1
 		return :equilateral
 	when 2
